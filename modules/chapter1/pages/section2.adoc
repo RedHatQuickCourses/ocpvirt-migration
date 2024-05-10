@@ -1,3 +1,84 @@
-= Section 2
+= Install Migration Toolkit Virtualization Operator
 
-This is _Section 2_ of _Chapter 1_ in the *hello* quick course....
+== Migration Toolkit for Virtualization
+
+Refer https://access.redhat.com/documentation/en-us/migration_toolkit_for_virtualization/2.6[Migration Toolkit for Virtualization] (MTV) to import a virtual machine from VMware vSphere to OpenShift. The migration toolkit supports two "modes" of import:
+
+* _Cold migration_ turns off the source virtual machine before starting the migration. This is the default migration type.
+* _Warm migration_ copies data while the source virtual machine continues to run. Once the bulk of data has been migrated, the VM is shutdown and the final data is copied to the destination. The new VM can then be started, resulting in a much shorter period of downtime for the VM-hosted application.
+
+The migration toolkit has already been deployed to your cluster using the Operator. Documentation for how to install and configure the Operator can be found https://access.redhat.com/documentation/en-us/migration_toolkit_for_virtualization/2.6/html/installing_and_using_the_migration_toolkit_for_virtualization/installing-the-operator_mtv[here].
+
+If you would like to learn more about how to configure the Migration Toolkit for Virtualization, please see https://access.redhat.com/documentation/en-us/migration_toolkit_for_virtualization/2.6/html/installing_and_using_the_migration_toolkit_for_virtualization/prerequisites_mtv#vmware-prerequisites_mtv[here] for VMware vSphere.
+
+== Prerequisites
+
+You must install compatible versions of OpenShift Container Platform and OpenShift Virtualization.
+
+The firewalls must enable traffic over the following ports:
+
+. Network ports required for migrating from VMware vSphere
++
+[cols="1,1,1,1,1"]
+|===
+|*Port*|*Protocol*|*Source*|*Destination*|*Purpose*
+|443|TCP|OpenShift nodes|VMware vCenter|VMware provider inventory
+Disk transfer authentication
+|443|TCP|OpenShift nodes|VMware ESXi hosts|Disk transfer authentication
+|902|TCP|OpenShift nodes|VMware ESXi hosts|Disk transfer data copy
+|===
+
+The following prerequisites apply to all migrations:
+
+* ISO/CDROM disks must be unmounted.
+*  Each NIC must contain one IPv4 and/or one IPv6 address.
+*  The VM operating system must be certified and supported for use as a guest operating system with OpenShift Virtualization and for conversion to KVM with virt-v2v.
+*  VM names must contain only lowercase letters (a-z), numbers (0-9), or hyphens (-), up to a maximum of 253 characters. The first and last characters must be alphanumeric. The name must not contain uppercase letters, spaces, periods (.), or special characters.
+*  VM names must not duplicate the name of a VM in the OpenShift Virtualization environment.
+
+Prerequisites for VMWare are described in the following link:https://access.redhat.com/documentation/en-us/migration_toolkit_for_virtualization/2.6/html/installing_and_using_the_migration_toolkit_for_virtualization/prerequisites_mtv#vmware-prerequisites_mtv[link]
+
+== Review MTV Operator
+
+Operator was preinstalled to be ued in this lab.
+
+. Navigate to *Operators* -> *Installed Operators* and review the `Migration Toolkit for Virtualization` operator.
+
+[NOTE]
+If you are performing this on your own setup then you can follow the below instructions to install the Operator.
+
+== Install and configure the MTV Operator
+
+. Navigate to *Operators* -> *OperatorHub* and filter for `Migration Toolkit for Virtualization`
++
+image::MTV/01_OperatorHub.png[]
+. Click the tile appeared and press *Install*
++
+image::MTV/02_Operator.png[]
+
+. Review the _Custom Resources Definition_ which are going to be created and without modify any option press *Install*
++
+image::MTV/03_Operator_Install.png[]
++
+[IMPORTANT]
+Select version `release-v2.4`
+
+. Like others Operators after the installation is required to create a Controller. Press *Create ForkliftController* for that purpose.
++
+image::MTV/04_Operator_Installed.png[]
+
+. In the next screen press *Create* without modify any value
++
+image::MTV/05_ForkliftController.png[]
+
+. Ensure the `Status` is `Running,Successful`
++
+image::MTV/06_ForkliftController_Status.png[]
+
+. Refresh web console when the banner appears
++
+image::MTV/06_ForkliftController_Webconsole.png[]
+
+. A left menu called *Migration* will appear
++
+image::MTV/07_MTV_Left_Menu.png[]

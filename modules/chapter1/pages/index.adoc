@@ -1,3 +1,8 @@
-= Chapter 1
+= Introduction to Operator Installation
 
-This is the home page of _Chapter_ 1 in the *hello* quick course...
+This chapter covers the installation of necessary Operators such as OpenShift Virtualization and Migration Toolkit for Virtualization (MTV).
+
+Chapter goals:
+
+* Gain experience with Operator installation using the OperatorHub.
+* Examine the installed Operator and the PersistentVolumeClaim created by the OpenShift Virtualization Operator.

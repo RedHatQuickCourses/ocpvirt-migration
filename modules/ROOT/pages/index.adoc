@@ -1,6 +1,44 @@
-= An Example Quick Course
+= Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)
 :navtitle: Home
 
-== Introduction
+Welcome to this quick course on the _Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)_.
+This quick course is a part of a series of courses about Migrate Applications and VM workloads from VMware to OpenShift Virtualization.
 
-This is an example quick course demonstrating the usage of Antora for authoring and publishing quick courses.
+IMPORTANT: The hands-on labs in this course were created and tested with Red Hat OpenShift Container Platform v4.14. Labs should mostly work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any issue.
+
+== Authors
+
+The PTL team acknowledges the valuable contributions of the following Red Hat associates:
+
+* Andrew Sullivan
+* Ken Savich
+* Laura Thain
+* Sarvesh Pandit
+
+== Classroom Environment
+
+This course has a few, simple hands-on labs. You will use the https://demo.redhat.com/catalog?item=babylon-catalog-prod/equinix-metal.roadshow-ocpvirt.prod&utm_source=webapp&utm_medium=share-link[OpenShift Virtualization Roadshow] catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.
+
+For Red Hat partners who do not have access to RHDP, ##FIX_THIS##
+
+== Prerequisites
+
+For this course, you should have:
+
+* RHCSA or higher is helpful for the navigation and usage of the command line, but it is not required.
+* https://developers.redhat.com/learn/openshift/container-fundamentals[Container Fundamentals]
+* https://developers.redhat.com/learn/openshift/foundations-openshift[Foundations of OpenShift]
+* Either you have completed the Managing Virtual Machines with Red Hat OpenShift Virtualization course (DO316) or have equivalent knowledge.
+
+== Objectives
+
+The overall objectives of this course include:
+
+* Install operators such as OpenShift Virtualization and Migration Toolkit for Virtualization (MTV)
+* Add VMware vSphere as source provider
+* Configure network and storage mapping
+* Create a migration plan
+* Perform VM migration
+* Review and configure migrated virtual machines
+
+

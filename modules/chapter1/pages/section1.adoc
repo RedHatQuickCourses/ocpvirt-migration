@@ -1,3 +1,131 @@
-= Section 1
+= Install OpenShift Virtualization Operator
 
-This is _Section 1_ of _Chapter 1_ in the *hello* quick course....
+== Review Red Hat OpenShift Container Platform Cluster
+
+=== Verify Requirements
+
+Before you install OpenShift Virtualization for Red Hat OpenShift Container Platform 4, make sure that your Red Hat OpenShift Container Platform cluster meets the following requirements:
+
+* Your cluster must be installed on bare-metal infrastructure with Red Hat Enterprise Linux^(R)^ CoreOS (RHCOS) workers.
++
+OpenShift Virtualization supports only RHCOS worker nodes--Red Hat Enterprise Linux (RHEL 7 and RHEL 8) nodes are _not_ supported.
+* Additionally, your cluster must use the installer-provisioned infrastructure and deploy machine health checks to maintain high availability (HA) of virtual machines.
+* You must manage your compute nodes according to the number and size of the virtual machines that you want to host in the cluster.
+
+=== Review Nodes and Machines
+
+. Log in to the OpenShift Container Platform web console using the administrator credentials provided in the previous lab, if you are not already logged in.
+. From the navigation menu, select *Compute* -> *Nodes*:
++
+image::Install/Compute_Nodes.png[]
++
+There are three master and three workers in the OpenShift 4 Cluster. In addition, the `ipmi` (Intelligent Platform Management Interface) is being used to manage the bare-metal nodes.
+
+. Click a worker node to obtain resource information about the node, and navigate to the *Details* tab to review the information about the operating system:
++
+image::Install/Worker0_Information.png[]
++
+The bare-metal node is configured using RHCOS.
+
+. Select *Compute* -> *Bare Metal Hosts*:
++
+image::Install/BMHosts.png[]
++
+[NOTE]
+Ignore the "Registration error" message if it appears.
+
+. Click a worker node to obtain information about the physical (bare-metal) node:
++
+image::Install/Worker0_BMhost.png[]
++
+[NOTE]
+Ignore the "Registration error" message if it appears.
+
+== Install Operator
+
+In this section, you learn to install an Operator from the *OperatorHub* page. You manage Operators from the Administrator perspective in the web console.
+
+[NOTE]
+In the demo lab, OpenShift Virtualization Operator is already installed.
+If you are performing this on your own setup then you can follow the below instructions to install the Operator.
+
+. From the navigation menu, select *Operators* -> *OperatorHub*:
++
+image::Install/01_OperatorHub_Menu.png[]
+
+. Explore the *OperatorHub* page and note that all of the currently available Operators are displayed:
++
+image::Install/02_OperatorHub_Dashboard.png[]
++
+The dashboard lists the Operators that can be installed and various ways to filter the list.
+
+. In the *Filter by keyword...* field, type `OpenShift Virtualization` and select the OpenShift Virtualization tile:
++
+image::Install/03_OperatorHub_Search.png[]
++
+You can also filter by category, installation state, provider, provider type, capability level, or infrastructure features.
+
+. Click *Install*:
++
+image::Install/04_OperatorHub_Install.png[]
+
+. On the *Install Operator* wizard page that opens with the default options selected, click  *Install*:
++
+image::Install/05_OperatorHub_Install_Wizard.png[]
++
+The wizard allows you to specify the update channel, the installation mode, the installed Namespace, and the update approval strategy options.
++
+As the installation progresses, the status is shown.
+
+. When the installation is complete, click *Create HyperConverged* to create the required custom resource:
++
+image::Install/06_OperatorHub_Install_Progress.png[]
+
+. Review the *Create HyperConverged* wizard options:
++
+image::Install/08_Create_HyperConverged.png[]
+
+. Without changing the default values, scroll down and click *Create* to open the *OpenShift Virtualization Deployment* tab for the OpenShift Virtualization Operator:
++
+image::Install/09_Hyperconverged_Tab.png[]
+
+. Watch the *Status* column until the status changes to `Available`:
++
+image::Install/10_Hyperconverged_Available.png[]
+
+== Examine OpenShift Virtualization Operator
+
+. Click the *Details* tab to view information about the Operator:
++
+image::Install/11_Details_1.png[]
+
+. Scroll down to the *ClusterServiceVersion details* section and review the details:
++
+image::Install/11_Details_2.png[]
++
+You can see the Namespace where the Operator was installed, the status, the different Operator deployments created during the installation, the Operator ServiceAccounts created, and the OperatorGroup.
+
+. Scroll up and click the *Subscription* tab to view the subscription details:
++
+image::Install/12_Subscription.png[]
++
+[NOTE]
+Subscribing an Operator to one or more namespaces makes the Operator available to developers on your cluster.
+
+== Examine PersistentVolumeClaims Created by Operator
+
+During the installation of the Operator, some PersistentVolumeClaims for different distributions are created:
+
+* Red Hat Enterprise Linux 8.0+
+* Red Hat Enterprise Linux 9.0
+* Fedora 34+
+* CentOS Stream 8
+* CentOS Stream 9
+
+In this section, you examine the PVCs created by the Operator.
+
+. In the left menu, navigate to *Storage* and click *PersistentVolumeClaims*:
++
+image::Install/13_PVCs.png[]
+
+. Explore the *PersistentVolumeClaims* page and the information provided about the PVCs.
