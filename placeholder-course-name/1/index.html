@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>An Example Quick Course :: Placeholder Course Title</title>
+    <title>Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV) :: Placeholder Course Title</title>
     <link rel="next" href="chapter1/index.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../_/css/site.css">
@@ -47,16 +47,13 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="chapter1/index.html">Chapter 1</a>
+    <a class="nav-link" href="chapter1/index.html">Introduction to Operator Installation</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="chapter1/section1.html">Section 1</a>
+    <a class="nav-link" href="chapter1/section1.html">Install OpenShift Virtualization Operator</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="chapter1/section2.html">Section 2</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="chapter1/section3.html">Section 3</a>
+    <a class="nav-link" href="chapter1/section2.html">Install Migration Toolkit Virtualization Operator</a>
   </li>
 </ul>
   </li>
@@ -136,17 +133,118 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">An Example Quick Course</h1>
-<div class="sect1">
-<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<h1 class="page">Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is an example quick course demonstrating the usage of Antora for authoring and publishing quick courses.</p>
+<p>Welcome to this quick course on the <em>Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)</em>.
+This quick course is a part of a series of courses about Migrate Applications and VM workloads from VMware to OpenShift Virtualization.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The hands-on labs in this course were created and tested with Red Hat OpenShift Container Platform v4.14. Labs should mostly work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any issue.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors"><a class="anchor" href="#_authors"></a>Authors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The PTL team acknowledges the valuable contributions of the following Red Hat associates:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Andrew Sullivan</p>
+</li>
+<li>
+<p>Ken Savich</p>
+</li>
+<li>
+<p>Laura Thain</p>
+</li>
+<li>
+<p>Sarvesh Pandit</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_classroom_environment"><a class="anchor" href="#_classroom_environment"></a>Classroom Environment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This course has a few, simple hands-on labs. You will use the <a href="https://demo.redhat.com/catalog?item=babylon-catalog-prod/equinix-metal.roadshow-ocpvirt.prod&amp;utm_source=webapp&amp;utm_medium=share-link">OpenShift Virtualization Roadshow</a> catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.</p>
+</div>
+<div class="paragraph">
+<p>For Red Hat partners who do not have access to RHDP, <mark>FIX_THIS</mark></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For this course, you should have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>RHCSA or higher is helpful for the navigation and usage of the command line, but it is not required.</p>
+</li>
+<li>
+<p><a href="https://developers.redhat.com/learn/openshift/container-fundamentals">Container Fundamentals</a></p>
+</li>
+<li>
+<p><a href="https://developers.redhat.com/learn/openshift/foundations-openshift">Foundations of OpenShift</a></p>
+</li>
+<li>
+<p>Either you have completed the Managing Virtual Machines with Red Hat OpenShift Virtualization course (DO316) or have equivalent knowledge.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_objectives"><a class="anchor" href="#_objectives"></a>Objectives</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The overall objectives of this course include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install operators such as OpenShift Virtualization and Migration Toolkit for Virtualization (MTV)</p>
+</li>
+<li>
+<p>Add VMware vSphere as source provider</p>
+</li>
+<li>
+<p>Configure network and storage mapping</p>
+</li>
+<li>
+<p>Create a migration plan</p>
+</li>
+<li>
+<p>Perform VM migration</p>
+</li>
+<li>
+<p>Review and configure migrated virtual machines</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="next"><a href="chapter1/index.html">Chapter 1</a></span>
+  <span class="next"><a href="chapter1/index.html">Introduction to Operator Installation</a></span>
 </nav>
 </article>
   </div>
