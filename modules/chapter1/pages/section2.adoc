@@ -28,16 +28,6 @@ Disk transfer authentication
 |902|TCP|OpenShift nodes|VMware ESXi hosts|Disk transfer data copy
 |===
 
-The following prerequisites apply to all migrations:
-
-* ISO/CDROM disks must be unmounted.
-*  Each NIC must contain one IPv4 and/or one IPv6 address.
-*  The VM operating system must be certified and supported for use as a guest operating system with OpenShift Virtualization and for conversion to KVM with virt-v2v.
-*  VM names must contain only lowercase letters (a-z), numbers (0-9), or hyphens (-), up to a maximum of 253 characters. The first and last characters must be alphanumeric. The name must not contain uppercase letters, spaces, periods (.), or special characters.
-*  VM names must not duplicate the name of a VM in the OpenShift Virtualization environment.
-
-Prerequisites for VMWare are described in the following link:https://access.redhat.com/documentation/en-us/migration_toolkit_for_virtualization/2.6/html/installing_and_using_the_migration_toolkit_for_virtualization/prerequisites_mtv#vmware-prerequisites_mtv[link]
-
 == Review MTV Operator
 
 Operator was preinstalled to be ued in this lab.

@@ -1,3 +1,13 @@
-= Chapter 2
+= Migrate VMs from VMware vSphere to OpenShift Virtualization
 
-This is the home page of _Chapter 2_ in the *hello* quick course....
+This chapter covers the migration of VMs from VMware vSphere to OpenShift Virtualization.
+
+Chapter goals:
+
+* Review the VMware environment
+* Add a VMware vSphere source provider and connect to VMware provider
+* Create a network mapping
+* Create a storage mapping
+* Create the migration plan
+* Run the migration plan
+* Review and configure migrated virtual machines
