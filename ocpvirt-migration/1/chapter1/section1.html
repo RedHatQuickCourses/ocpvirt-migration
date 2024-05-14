@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Install OpenShift Virtualization Operator :: Placeholder Course Title</title>
+    <link rel="prev" href="index.html">
+    <link rel="next" href="section2.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Placeholder Course Title</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/ocpvirt-migration/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ocpvirt-migration" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Introduction to Operator Installation</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section1.html">Install OpenShift Virtualization Operator</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section2.html">Install Migration Toolkit Virtualization Operator</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter2/index.html">Migrate VMs from VMware vSphere to OpenShift Virtualization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/section1.html">The VMware environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/section2.html">Add a VMware vSphere source provider and connect to VMware provider</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/section3.html">The Migration Plan</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/section4.html">Review and configure migrated Virtual Machines</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix A</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)</a></li>
+    <li><a href="index.html">Introduction to Operator Installation</a></li>
+    <li><a href="section1.html">Install OpenShift Virtualization Operator</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Install OpenShift Virtualization Operator</h1>
+<div class="sect1">
+<h2 id="_review_red_hat_openshift_container_platform_cluster"><a class="anchor" href="#_review_red_hat_openshift_container_platform_cluster"></a>Review Red Hat OpenShift Container Platform Cluster</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_verify_requirements"><a class="anchor" href="#_verify_requirements"></a>Verify Requirements</h3>
+<div class="paragraph">
+<p>Before you install OpenShift Virtualization for Red Hat OpenShift Container Platform 4, make sure that your Red Hat OpenShift Container Platform cluster meets the following requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Your cluster must be installed on bare-metal infrastructure with Red Hat Enterprise Linux<sup>&#174;</sup> CoreOS (RHCOS) workers.</p>
+<div class="paragraph">
+<p>OpenShift Virtualization supports only RHCOS worker nodes&#8212;&#8203;Red Hat Enterprise Linux (RHEL 7 and RHEL 8) nodes are <em>not</em> supported.</p>
+</div>
+</li>
+<li>
+<p>Additionally, your cluster must use the installer-provisioned infrastructure and deploy machine health checks to maintain high availability (HA) of virtual machines.</p>
+</li>
+<li>
+<p>You must manage your compute nodes according to the number and size of the virtual machines that you want to host in the cluster.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_review_nodes_and_machines"><a class="anchor" href="#_review_nodes_and_machines"></a>Review Nodes and Machines</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to the OpenShift Container Platform web console using the administrator credentials provided in the previous lab, if you are not already logged in.</p>
+</li>
+<li>
+<p>From the navigation menu, select <strong>Compute</strong> &#8594; <strong>Nodes</strong>:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/Compute_Nodes.png" alt="Compute Nodes">
+</div>
+</div>
+<div class="paragraph">
+<p>There are three master and three workers in the OpenShift 4 Cluster. In addition, the <code>ipmi</code> (Intelligent Platform Management Interface) is being used to manage the bare-metal nodes.</p>
+</div>
+</li>
+<li>
+<p>Click a worker node to obtain resource information about the node, and navigate to the <strong>Details</strong> tab to review the information about the operating system:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/Worker0_Information.png" alt="Worker0 Information">
+</div>
+</div>
+<div class="paragraph">
+<p>The bare-metal node is configured using RHCOS.</p>
+</div>
+</li>
+<li>
+<p>Select <strong>Compute</strong> &#8594; <strong>Bare Metal Hosts</strong>:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/BMHosts.png" alt="BMHosts">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Ignore the "Registration error" message if it appears.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click a worker node to obtain information about the physical (bare-metal) node:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/Worker0_BMhost.png" alt="Worker0 BMhost">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Ignore the "Registration error" message if it appears.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install_operator"><a class="anchor" href="#_install_operator"></a>Install Operator</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section, you learn to install an Operator from the <strong>OperatorHub</strong> page. You manage Operators from the Administrator perspective in the web console.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the demo lab, OpenShift Virtualization Operator is already installed.
+If you are performing this on your own setup then you can follow the below instructions to install the Operator.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the navigation menu, select <strong>Operators</strong> &#8594; <strong>OperatorHub</strong>:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/01_OperatorHub_Menu.png" alt="01 OperatorHub Menu">
+</div>
+</div>
+</li>
+<li>
+<p>Explore the <strong>OperatorHub</strong> page and note that all of the currently available Operators are displayed:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/02_OperatorHub_Dashboard.png" alt="02 OperatorHub Dashboard">
+</div>
+</div>
+<div class="paragraph">
+<p>The dashboard lists the Operators that can be installed and various ways to filter the list.</p>
+</div>
+</li>
+<li>
+<p>In the <strong>Filter by keyword&#8230;&#8203;</strong> field, type <code>OpenShift Virtualization</code> and select the OpenShift Virtualization tile:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/03_OperatorHub_Search.png" alt="03 OperatorHub Search">
+</div>
+</div>
+<div class="paragraph">
+<p>You can also filter by category, installation state, provider, provider type, capability level, or infrastructure features.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Install</strong>:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/04_OperatorHub_Install.png" alt="04 OperatorHub Install">
+</div>
+</div>
+</li>
+<li>
+<p>On the <strong>Install Operator</strong> wizard page that opens with the default options selected, click  <strong>Install</strong>:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/05_OperatorHub_Install_Wizard.png" alt="05 OperatorHub Install Wizard">
+</div>
+</div>
+<div class="paragraph">
+<p>The wizard allows you to specify the update channel, the installation mode, the installed Namespace, and the update approval strategy options.</p>
+</div>
+<div class="paragraph">
+<p>As the installation progresses, the status is shown.</p>
+</div>
+</li>
+<li>
+<p>When the installation is complete, click <strong>Create HyperConverged</strong> to create the required custom resource:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/06_OperatorHub_Install_Progress.png" alt="06 OperatorHub Install Progress">
+</div>
+</div>
+</li>
+<li>
+<p>Review the <strong>Create HyperConverged</strong> wizard options:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/08_Create_HyperConverged.png" alt="08 Create HyperConverged">
+</div>
+</div>
+</li>
+<li>
+<p>Without changing the default values, scroll down and click <strong>Create</strong> to open the <strong>OpenShift Virtualization Deployment</strong> tab for the OpenShift Virtualization Operator:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/09_Hyperconverged_Tab.png" alt="09 Hyperconverged Tab">
+</div>
+</div>
+</li>
+<li>
+<p>Watch the <strong>Status</strong> column until the status changes to <code>Available</code>:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/10_Hyperconverged_Available.png" alt="10 Hyperconverged Available">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examine_openshift_virtualization_operator"><a class="anchor" href="#_examine_openshift_virtualization_operator"></a>Examine OpenShift Virtualization Operator</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the <strong>Details</strong> tab to view information about the Operator:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/11_Details_1.png" alt="11 Details 1">
+</div>
+</div>
+</li>
+<li>
+<p>Scroll down to the <strong>ClusterServiceVersion details</strong> section and review the details:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/11_Details_2.png" alt="11 Details 2">
+</div>
+</div>
+<div class="paragraph">
+<p>You can see the Namespace where the Operator was installed, the status, the different Operator deployments created during the installation, the Operator ServiceAccounts created, and the OperatorGroup.</p>
+</div>
+</li>
+<li>
+<p>Scroll up and click the <strong>Subscription</strong> tab to view the subscription details:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/12_Subscription.png" alt="12 Subscription">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Subscribing an Operator to one or more namespaces makes the Operator available to developers on your cluster.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examine_persistentvolumeclaims_created_by_operator"><a class="anchor" href="#_examine_persistentvolumeclaims_created_by_operator"></a>Examine PersistentVolumeClaims Created by Operator</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>During the installation of the Operator, some PersistentVolumeClaims for different distributions are created:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Red Hat Enterprise Linux 8.0+</p>
+</li>
+<li>
+<p>Red Hat Enterprise Linux 9.0</p>
+</li>
+<li>
+<p>Fedora 34+</p>
+</li>
+<li>
+<p>CentOS Stream 8</p>
+</li>
+<li>
+<p>CentOS Stream 9</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In this section, you examine the PVCs created by the Operator.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the left menu, navigate to <strong>Storage</strong> and click <strong>PersistentVolumeClaims</strong>:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Install/13_PVCs.png" alt="13 PVCs">
+</div>
+</div>
+</li>
+<li>
+<p>Explore the <strong>PersistentVolumeClaims</strong> page and the information provided about the PVCs.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Introduction to Operator Installation</a></span>
+  <span class="next"><a href="section2.html">Install Migration Toolkit Virtualization Operator</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
