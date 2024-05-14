@@ -1,3 +1,94 @@
-= 
+= The Migration Plan
 
-== 
+== Create Storage and Network Mapping
+
+Storage and networking are managed differently in VMware vSphere and Red Hat OpenShift. Therefore it is necessary to create a (simple) mapping from the source datastores and networks in VMware vSphere to the equivalent in OpenShift. This mapping will then be used to translate the VMware vSphere network and storage definitions to OpenShift network and storage definitions.
+
+These only need to be configured once and are then reused in subsequent VM Migration Plans.
+
+. Navigate in the left menu to *Migration* -> *NetworkMaps for virtualization* and press *Create NetworkMap*
++
+image::MTV/96_MTV_NetworkMaps.png[]
+
+. Fill in the following information in the appeared dialog. Press *Create*.
+.. *Name*: `mapping-segment`
+.. *Source provider*: `vmware`
+.. *Target provider*: `host`
+.. *Source networks*: `segment-migrating-to-ocpvirt`
+.. *Target network*: `Pod network (default)`
++
+image::MTV/97_Add_VMWARE_Mapping_Network.png[]
+
+. Ensure the created mapping has the *Status* `Ready`
++
+image::MTV/98_List_VMWARE_Mapping_Network.png[]
+
+. Navigate in the left menu to *Migration* -> *StorageMaps for virtualization* and press *Create StorageMap*
++
+image::MTV/99_MTV_StorageMaps.png[]
+
+. Fill in the following information. Press *Create*.
+.. *Name*: `mapping-datastore`
+.. *Source provider*: `vmware`
+.. *Target provider*: `host`
+.. *Source storage*: `WorkloadDatastore`
+.. *Target storage classs*: `ocs-storagecluster-ceph-rbd (default)`
++
+image::MTV/100_Add_VMWARE_Mapping_Storage.png[]
+
+. Ensure the created mapping has the *Status* `Ready`
++
+image::MTV/101_List_VMWARE_Mapping_Storage.png[]
+
+== Create and Run Migration Plan
+
+Now that you have the virtualization provider and the two mappings (network & storage) you can create a Migration Plan - this plan selects which VMs to migrate from VMware vSphere to Red Hat OpenShift Virtualization and how to execute the migration (cold/warm, network mapping, storage mapping, pre-/post-hooks, etc.).
+
+. Navigate in the left menu to *Migration* -> *Plans for virtualization* and press *Create plan*
++
+image::MTV/102_Create_VMWARE_Plan.png[]
+
+. On the wizard fill the following information on the *General settings* step. Press *Next* when done.
+.. *Plan name*: `move-webapp-vmware`
+.. *Source provider*: `vmware`
+.. *Target provider*: `host`
+.. *Target namespace*: `vmexamples`
++
+image::MTV/52_General_VMWARE_Plan.png[]
+
+. On the next step, select `All datacenters`  and press *Next*
++
+image::MTV/53_VM_Filter_VMWARE_Plan.png[]
+
+. On the next step select  all the VMs. Press *Next*:
++
+image::MTV/54_VM_Select_VMWARE_Plan.png[]
+
+. On the *Network mapping* step select `mapping-segment` and press *Next*
++
+image::MTV/55_Network_VMWARE_Plan.png[]
+
+. On the *Storage mapping* step select `mapping-datastore` and press *Next*
++
+image::MTV/56_Storage_VMWARE_Plan.png[]
+
+. Press *Next* on the steps *Type* and *Hooks*
+
+. Review the configuration specified and press *Finish*
++
+image::MTV/57_Finish_VMWARE_Plan.png[]
+
+. Ensure the status of the plan is *Ready*
++
+image::MTV/58_Ready_VMWARE_Plan.png[]
+
+. Press *Start* to begin the migration of the three VMs
+
+. After around 10 minutes the migration is completed
++
+image::MTV/59_Completed_VMWARE_Plan.png[]
++
+[IMPORTANT]
+====
+Having many participants performing the same task in parallel can cause this task to perform slower than in a real environment. Please be patient.
+====

@@ -1,9 +1,8 @@
-name: placeholder-course-name
-title: Placeholder Course Title
+name: ocpvirt-migration
+title: Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)
 version: 1
 nav:
 - modules/ROOT/nav.adoc
 - modules/chapter1/nav.adoc
 - modules/chapter2/nav.adoc
-- modules/chapter3/nav.adoc
 - modules/appendix/nav.adoc
