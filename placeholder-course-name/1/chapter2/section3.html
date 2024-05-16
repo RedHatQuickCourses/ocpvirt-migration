@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: Placeholder Course Title</title>
+    <title>The Migration Plan :: Placeholder Course Title</title>
     <link rel="prev" href="section2.html">
     <link rel="next" href="section4.html">
     <meta name="generator" content="Antora 3.1.3">
@@ -73,38 +73,12 @@
     <a class="nav-link" href="section2.html">Add a VMware vSphere source provider and connect to VMware provider</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="section3.html">section3.adoc</a>
+    <a class="nav-link" href="section3.html">The Migration Plan</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section4.html">section4.adoc</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section5.html">section5.adoc</a>
+    <a class="nav-link" href="section4.html">Review and configure migrated Virtual Machines</a>
   </li>
 </ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter3/index.html">Chapter 3</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter3/section1.html">Section 1</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter3/section2.html">Section 2</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../appendix/appendix.html">Appendix A</a>
   </li>
 </ul>
   </li>
@@ -138,7 +112,7 @@
   <ul>
     <li><a href="../index.html">Placeholder Course Title</a></li>
     <li><a href="index.html">Migrate VMs from VMware vSphere to OpenShift Virtualization</a></li>
-    <li><a href="section3.html">section3.adoc</a></li>
+    <li><a href="section3.html">The Migration Plan</a></li>
   </ul>
 </nav>
 </div>
@@ -147,15 +121,231 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
+<h1 class="page">The Migration Plan</h1>
+<div class="sect1">
+<h2 id="_create_storage_and_network_mapping"><a class="anchor" href="#_create_storage_and_network_mapping"></a>Create Storage and Network Mapping</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>=</p>
+<p>Storage and networking are managed differently in VMware vSphere and Red Hat OpenShift. Therefore it is necessary to create a (simple) mapping from the source datastores and networks in VMware vSphere to the equivalent in OpenShift. This mapping will then be used to translate the VMware vSphere network and storage definitions to OpenShift network and storage definitions.</p>
 </div>
 <div class="paragraph">
-<p>==</p>
+<p>These only need to be configured once and are then reused in subsequent VM Migration Plans.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigate in the left menu to <strong>Migration</strong> &#8594; <strong>NetworkMaps for virtualization</strong> and press <strong>Create NetworkMap</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/96_MTV_NetworkMaps.png" alt="96 MTV NetworkMaps">
+</div>
+</div>
+</li>
+<li>
+<p>Fill in the following information in the appeared dialog. Press <strong>Create</strong>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Name</strong>: <code>mapping-segment</code></p>
+</li>
+<li>
+<p><strong>Source provider</strong>: <code>vmware</code></p>
+</li>
+<li>
+<p><strong>Target provider</strong>: <code>host</code></p>
+</li>
+<li>
+<p><strong>Source networks</strong>: <code>segment-migrating-to-ocpvirt</code></p>
+</li>
+<li>
+<p><strong>Target network</strong>: <code>Pod network (default)</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/97_Add_VMWARE_Mapping_Network.png" alt="97 Add VMWARE Mapping Network">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ensure the created mapping has the <strong>Status</strong> <code>Ready</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/98_List_VMWARE_Mapping_Network.png" alt="98 List VMWARE Mapping Network">
+</div>
+</div>
+</li>
+<li>
+<p>Navigate in the left menu to <strong>Migration</strong> &#8594; <strong>StorageMaps for virtualization</strong> and press <strong>Create StorageMap</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/99_MTV_StorageMaps.png" alt="99 MTV StorageMaps">
+</div>
+</div>
+</li>
+<li>
+<p>Fill in the following information. Press <strong>Create</strong>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Name</strong>: <code>mapping-datastore</code></p>
+</li>
+<li>
+<p><strong>Source provider</strong>: <code>vmware</code></p>
+</li>
+<li>
+<p><strong>Target provider</strong>: <code>host</code></p>
+</li>
+<li>
+<p><strong>Source storage</strong>: <code>WorkloadDatastore</code></p>
+</li>
+<li>
+<p><strong>Target storage classs</strong>: <code>ocs-storagecluster-ceph-rbd (default)</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/100_Add_VMWARE_Mapping_Storage.png" alt="100 Add VMWARE Mapping Storage">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ensure the created mapping has the <strong>Status</strong> <code>Ready</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/101_List_VMWARE_Mapping_Storage.png" alt="101 List VMWARE Mapping Storage">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_and_run_migration_plan"><a class="anchor" href="#_create_and_run_migration_plan"></a>Create and Run Migration Plan</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that you have the virtualization provider and the two mappings (network &amp; storage) you can create a Migration Plan - this plan selects which VMs to migrate from VMware vSphere to Red Hat OpenShift Virtualization and how to execute the migration (cold/warm, network mapping, storage mapping, pre-/post-hooks, etc.).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigate in the left menu to <strong>Migration</strong> &#8594; <strong>Plans for virtualization</strong> and press <strong>Create plan</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/102_Create_VMWARE_Plan.png" alt="102 Create VMWARE Plan">
+</div>
+</div>
+</li>
+<li>
+<p>On the wizard fill the following information on the <strong>General settings</strong> step. Press <strong>Next</strong> when done.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Plan name</strong>: <code>move-webapp-vmware</code></p>
+</li>
+<li>
+<p><strong>Source provider</strong>: <code>vmware</code></p>
+</li>
+<li>
+<p><strong>Target provider</strong>: <code>host</code></p>
+</li>
+<li>
+<p><strong>Target namespace</strong>: <code>vmexamples</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/52_General_VMWARE_Plan.png" alt="52 General VMWARE Plan">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>On the next step, select <code>All datacenters</code>  and press <strong>Next</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/53_VM_Filter_VMWARE_Plan.png" alt="53 VM Filter VMWARE Plan">
+</div>
+</div>
+</li>
+<li>
+<p>On the next step select  all the VMs. Press <strong>Next</strong>:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/54_VM_Select_VMWARE_Plan.png" alt="54 VM Select VMWARE Plan">
+</div>
+</div>
+</li>
+<li>
+<p>On the <strong>Network mapping</strong> step select <code>mapping-segment</code> and press <strong>Next</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/55_Network_VMWARE_Plan.png" alt="55 Network VMWARE Plan">
+</div>
+</div>
+</li>
+<li>
+<p>On the <strong>Storage mapping</strong> step select <code>mapping-datastore</code> and press <strong>Next</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/56_Storage_VMWARE_Plan.png" alt="56 Storage VMWARE Plan">
+</div>
+</div>
+</li>
+<li>
+<p>Press <strong>Next</strong> on the steps <strong>Type</strong> and <strong>Hooks</strong></p>
+</li>
+<li>
+<p>Review the configuration specified and press <strong>Finish</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/57_Finish_VMWARE_Plan.png" alt="57 Finish VMWARE Plan">
+</div>
+</div>
+</li>
+<li>
+<p>Ensure the status of the plan is <strong>Ready</strong></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/58_Ready_VMWARE_Plan.png" alt="58 Ready VMWARE Plan">
+</div>
+</div>
+</li>
+<li>
+<p>Press <strong>Start</strong> to begin the migration of the three VMs</p>
+</li>
+<li>
+<p>After around 10 minutes the migration is completed</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/59_Completed_VMWARE_Plan.png" alt="59 Completed VMWARE Plan">
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Having many participants performing the same task in parallel can cause this task to perform slower than in a real environment. Please be patient.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="section2.html">Add a VMware vSphere source provider and connect to VMware provider</a></span>
-  <span class="next"><a href="section4.html">section4.adoc</a></span>
+  <span class="next"><a href="section4.html">Review and configure migrated Virtual Machines</a></span>
 </nav>
 </article>
   </div>
