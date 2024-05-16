@@ -22,8 +22,11 @@ You must download the *VMware Virtual Disk Development Kit* (*VDDK*), build a VD
 Storing the VDDK image in a public registry might violate the VMware license terms.
 
 [NOTE]
-This VDDK has already been set up for you in this environment.
 If you want to configure in your lab then you can create ImageStreams and BuildConfigs.
+
+=== Create namespace for migration
+
+Create project called `vmexamples`.
 
 === Create ImageStreams and BuildConfigs
 
@@ -103,8 +106,8 @@ image::MTV/93_MTV_Create_Provider.png[]
 . Select *VMware* on the *Provider type* dropdown and fill the following data:
 .. *Name*: `vmware`
 .. *vCenter host name or IP address*: `portal.vc.opentlc.com`
-.. *vCenter user name*: `%vcenter_user%@vc.opentlc.com`
-.. *vCenter password*: `%vcenter_password%`
+.. *vCenter user name*: `vcenter_user`
+.. *vCenter password*: `vcenter_password`
 .. *VDDK init image*: `image-registry.openshift-image-registry.svc:5000/openshift/vddk:latest`
 .. *SHA-1 fingerprint*: `C7:BF:C2:DD:CD:73:1C:22:DC:D1:5A:DD:EA:64:21:C1:97:FB:F0:9C`
 +

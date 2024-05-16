@@ -4,7 +4,7 @@
 Welcome to this quick course on the _Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)_.
 This quick course is a part of a series of courses about Migrate Applications and VM workloads from VMware to OpenShift Virtualization.
 
-IMPORTANT: The hands-on labs in this course were created and tested with Red Hat OpenShift Container Platform v4.14. Labs should mostly work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any issue.
+IMPORTANT: The hands-on labs in this course were created and tested with Red Hat OpenShift Container Platform v4.13. Labs should mostly work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any issue.
 
 == Authors
 
@@ -18,8 +18,6 @@ The PTL team acknowledges the valuable contributions of the following Red Hat as
 == Classroom Environment
 
 This course has a few, simple hands-on labs. You will use the https://demo.redhat.com/catalog?item=babylon-catalog-prod/equinix-metal.roadshow-ocpvirt.prod&utm_source=webapp&utm_medium=share-link[OpenShift Virtualization Roadshow] catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.
-
-For Red Hat partners who do not have access to RHDP, ##FIX_THIS##
 
 == Prerequisites
 
@@ -41,4 +39,7 @@ The overall objectives of this course include:
 * Perform VM migration
 * Review and configure migrated virtual machines
 
+== References
 
+* https://github.com/rhpds/roadshow_ocpvirt_instructions/tree/main[roadshow_ocpvirt_instructions]
+* https://github.com/rhpds/showroom_migrating_to_ocpvirt/tree/main[showroom_migrating_to_ocpvirt]
