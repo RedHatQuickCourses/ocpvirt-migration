@@ -23,7 +23,10 @@ There are three master and three workers in the OpenShift 4 Cluster. In addition
 
 . Click a worker node to obtain resource information about the node, and navigate to the *Details* tab to review the information about the operating system:
 +
-image::Install/Worker0_Information.png[]
+image::Install/Worker1_Information.png[]
+If you scroll down then you will see the `Bare Metal Host` field.
++
+image::Install/Worker1_Information1.png[]
 +
 The bare-metal node is configured using RHCOS.
 
@@ -36,7 +39,7 @@ Ignore the "Registration error" message if it appears.
 
 . Click a worker node to obtain information about the physical (bare-metal) node:
 +
-image::Install/Worker0_BMhost.png[]
+image::Install/Worker1_BMhost.png[]
 +
 [NOTE]
 Ignore the "Registration error" message if it appears.
