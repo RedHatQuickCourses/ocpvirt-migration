@@ -24,9 +24,6 @@ There are three master and three workers in the OpenShift 4 Cluster. In addition
 . Click a worker node to obtain resource information about the node, and navigate to the *Details* tab to review the information about the operating system:
 +
 image::Install/Worker1_Information.png[]
-If you scroll down then you will see the `Bare Metal Host` field.
-+
-image::Install/Worker1_Information1.png[]
 +
 The bare-metal node is configured using RHCOS.
 

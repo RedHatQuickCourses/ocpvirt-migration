@@ -71,4 +71,4 @@ image::MTV/06_ForkliftController_Webconsole.png[]
 
 . A left menu called *Migration* will appear
 +
-image::MTV/07_MTV_Left_Menu.png[]
+image::MTV/07_MTV_Left_Menu.png[width=50%]
