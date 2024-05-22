@@ -30,11 +30,10 @@ Disk transfer authentication
 
 == Review MTV Operator
 
-Operator was preinstalled to be ued in this lab.
-
-. Navigate to *Operators* -> *Installed Operators* and review the `Migration Toolkit for Virtualization` operator.
+Navigate to *Operators* -> *Installed Operators* and review the `Migration Toolkit for Virtualization` operator.
 
 [NOTE]
+Operator was preinstalled to be ued in this lab.
 If you are performing this on your own setup then you can follow the below instructions to install the Operator.
 
 == Install and configure the MTV Operator

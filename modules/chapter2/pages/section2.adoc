@@ -73,7 +73,7 @@ spec:
   source:
     type: Dockerfile
     dockerfile: |
-      FROM registry.access.redhat.com/ubi8/ubi-minimal 
+      FROM registry.access.redhat.com/ubi8/ubi-minimal
       RUN curl -L -O www.opentlc.com/download/ocp4_baremetal/VMware-vix-disklib-7.0.3-20134304.x86_64.tar.gz
       RUN tar -xzf VMware-vix-disklib-7.0.3-20134304.x86_64.tar.gz
       RUN mkdir -p /opt
@@ -87,6 +87,10 @@ spec:
 . Navigate to *Builds* -> *Builds* and wait until the build status is *Complete*.
 
 === Add VMWare Provider
+
+[NOTE]
+In this demo lab, VMware provider is already added.
+f you are performing this on your own setup then you can follow the below instructions to add VMware provider.
 
 . Navigate in the left menu to *Migration* -> *Providers for virtualization*
 
