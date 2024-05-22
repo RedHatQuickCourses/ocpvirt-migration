@@ -1,4 +1,4 @@
-# Red Hat OpenShift Virtualization: Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV)
+# Red Hat OpenShift Virtualization: Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization
 
 This quick course is a part of a series of courses about migration from VMware vSphere to Red Hat OpenShift Virtualization.
 This course focus on installing OpenShift Virtualization operator and Migration Toolkit for Virtualization (MTV) operator and performing the VM migration from VMware vSphere to Red Hat OpenShift Virtualization using Migration Toolkit for Virtualization (MTV).
