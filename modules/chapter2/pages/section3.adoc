@@ -84,7 +84,7 @@ image::MTV/58_Ready_VMWARE_Plan.png[]
 
 . Press *Start* to begin the migration of the three VMs
 
-. After around 10 minutes the migration is completed
+. After around 40 minutes the migration is completed
 +
 image::MTV/59_Completed_VMWARE_Plan.png[]
 +
