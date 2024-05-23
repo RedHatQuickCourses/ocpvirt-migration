@@ -18,7 +18,7 @@ image::MTV/60_VMWARE_VMs_List.png[]
 +
 [NOTE]
 ====
-Ensure you select the project `vmexamples`
+Ensure that you select the project `vmexamples`
 ====
 
 . Access to the `winweb01` and navigate to the *YAML* tab.
@@ -124,4 +124,4 @@ In addition to the Migration Toolkit for Virtualization, there are three other m
 
 For more information about these, please reach out to your Red Hat account team.
 
-In this module, you explored how to migrate virtual machines from VMware vSphere to Red Hat OpenShift Virtualization. You have migrated a web application containing two Windows systems and a Linux system. You used OpenShift features to provide networking access to the application, and you learned to create services to provide access internal in the project.
+In this module, you explored how to migrate virtual machines from VMware vSphere to Red Hat OpenShift Virtualization. You have migrated a web application containing two Windows systems and a Linux system. You used OpenShift features to provide networking access to the application, and you learned to create services to provide internal access in the project.
