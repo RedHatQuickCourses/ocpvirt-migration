@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>The VMware environment :: Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization</title>
+    <link rel="prev" href="index.html">
+    <link rel="next" href="section2.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/ocpvirt-migration/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ocpvirt-migration" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter1/index.html">Introduction to Operator Installation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter1/section1.html">Install OpenShift Virtualization Operator</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter1/section2.html">Install Migration Toolkit Virtualization Operator</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Migrate VMs from VMware vSphere to OpenShift Virtualization</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section1.html">The VMware environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section2.html">Add a VMware vSphere source provider and connect to VMware provider</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section3.html">The Migration Plan</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section4.html">Review and configure migrated Virtual Machines</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Migrate VMs from VMware vSphere to Red Hat OpenShift Virtualization</a></li>
+    <li><a href="index.html">Migrate VMs from VMware vSphere to OpenShift Virtualization</a></li>
+    <li><a href="section1.html">The VMware environment</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">The VMware environment</h1>
+<div class="sect1">
+<h2 id="_migrating_virtual_machines_from_vmware"><a class="anchor" href="#_migrating_virtual_machines_from_vmware"></a>Migrating Virtual Machines from VMware</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A three-tier application has been deployed on VMware for you to migrate to OpenShift.</p>
+</div>
+<div class="paragraph">
+<p>The application consists of the following four virtual machines:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One HAproxy system that redirects traffic to the web servers</p>
+</li>
+<li>
+<p>Two Microsoft Windows servers with IIS hosting a PHP application connecting to the database</p>
+</li>
+<li>
+<p>One Linux system running a MariaDB database</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The application is accessible from the following link: <a href="http://webapp.vc.opentlc.com/" class="bare">http://webapp.vc.opentlc.com/</a></p>
+</div>
+<div class="paragraph">
+<p>You will migrate three of the four virtual machines using cold migration - you will not need to migrate the HAproxy (load balancer) VM because OpenShift handles network traffic and load balancing natively for VMs connected to the SDN using a <code>Service</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_review_the_vmware_environment"><a class="anchor" href="#_review_the_vmware_environment"></a>Review the VMware environment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To help understand the process of mapping resources, such as datastores and port groups, from vSphere into OpenShift&#8217;s equivalents, network attachment definitions and storage classes, let&#8217;s begin by reviewing the source environment for the migrations.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigate to vCenter via <a href="https://portal.vc.opentlc.com/ui/app/folder;nav=v/urn:vmomi:Folder:group-d1:ee1bef3e-6179-4c1f-9d2a-004c7b0df4e5/vms/vms" target="_blank" rel="noopener">https://portal.vc.opentlc.com</a></p>
+</li>
+<li>
+<p>Login with the user <code>vcenter_user</code>@vc.opentlc.com and the password <code>vcenter_password</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can find the <code>vcenter_user</code> and <code>vcenter_password</code> from Demo platform in <code>Advanced settings</code>.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>By default you&#8217;ll see the VMs and Folders view, where you can see the four VMs representing the application.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/100_vSphere_VM_List.png" alt="100 vSphere VM List">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The VMs with the suffix <code>_running</code> are the active ones. As for the migration have to be stopped, a clone of the VMs were created for the migration. Those VMs are the ones without that suffix.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Change to the networks view, then expand the tree to view the port group used by the virtual machines. Note that the name is <code>segment-migrating-to-ocpvirt</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/101_vSphere_Network.png" alt="101 vSphere Network">
+</div>
+</div>
+</li>
+<li>
+<p>Finally, review the datastore by browsing to the datastores view. Expand the tree to see the name of the datastore, <code>WorkloadDatastore</code>, and optionally browse to the <strong>VMs</strong> sub-tab to view the capacity used by each virtual machine.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/MTV/102_vSphere_Datastore.png" alt="102 vSphere Datastore">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Migrate VMs from VMware vSphere to OpenShift Virtualization</a></span>
+  <span class="next"><a href="section2.html">Add a VMware vSphere source provider and connect to VMware provider</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
