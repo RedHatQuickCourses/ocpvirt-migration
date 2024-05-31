@@ -8,8 +8,9 @@ Before you install OpenShift Virtualization for Red Hat OpenShift Container Plat
 
 * Your cluster must be installed on bare-metal infrastructure with Red Hat Enterprise Linux^(R)^ CoreOS (RHCOS) workers.
 +
-OpenShift Virtualization supports only RHCOS worker nodes--Red Hat Enterprise Linux (RHEL 7 and RHEL 8) nodes are _not_ supported. 
-// Should this be added under 'note' section?
+[NOTE]
+OpenShift Virtualization supports only RHCOS worker nodes--Red Hat Enterprise Linux (RHEL 7 and RHEL 8) nodes are _not_ supported.
+
 * Additionally, your cluster must use the installer-provisioned infrastructure and deploy machine health checks to maintain high availability (HA) of virtual machines.
 * You must manage your compute nodes according to the number and size of the virtual machines that you want to host in the cluster.
 

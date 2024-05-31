@@ -24,8 +24,7 @@ This course has a few, simple hands-on labs. You will use the https://demo.redha
 For this course, you should have:
 
 * RHCSA or higher is helpful for the navigation and usage of the command line, but it is not required.
-* https://developers.redhat.com/learn/openshift/container-fundamentals[Container Fundamentals]
-// When I press the above link, it doesn't directly guide me to the container fundamentals page. Is this just with me or do we need to update the link?
+* https://developers.redhat.com/learn/rhel/container-fundamentals[Container Fundamentals]
 * https://developers.redhat.com/learn/openshift/foundations-openshift[Foundations of OpenShift]
 * Either you have completed the Managing Virtual Machines with Red Hat OpenShift Virtualization course (DO316) or have equivalent knowledge.
 
