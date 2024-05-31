@@ -10,7 +10,7 @@ These only need to be configured once and are then reused in subsequent VM Migra
 +
 image::MTV/96_MTV_NetworkMaps.png[]
 
-. Fill in the following information in the appeared dialog. Press *Create*.
+. Fill in the following information in the appeared dialog box. Press *Create*.
 .. *Name*: `mapping-segment`
 .. *Source provider*: `vmware`
 .. *Target provider*: `host`
@@ -19,7 +19,7 @@ image::MTV/96_MTV_NetworkMaps.png[]
 +
 image::MTV/97_Add_VMWARE_Mapping_Network.png[]
 
-. Ensure the created mapping has the *Status* `Ready`
+. Ensure that the created mapping has the *Status* `Ready`
 +
 image::MTV/98_List_VMWARE_Mapping_Network.png[]
 
@@ -36,7 +36,7 @@ image::MTV/99_MTV_StorageMaps.png[]
 +
 image::MTV/100_Add_VMWARE_Mapping_Storage.png[]
 
-. Ensure the created mapping has the *Status* `Ready`
+. Ensure that the created mapping has the *Status* `Ready`
 +
 image::MTV/101_List_VMWARE_Mapping_Storage.png[]
 
@@ -78,7 +78,7 @@ image::MTV/56_Storage_VMWARE_Plan.png[]
 +
 image::MTV/57_Finish_VMWARE_Plan.png[]
 
-. Ensure the status of the plan is *Ready*
+. Ensure that the status of the plan is *Ready*
 +
 image::MTV/58_Ready_VMWARE_Plan.png[]
 

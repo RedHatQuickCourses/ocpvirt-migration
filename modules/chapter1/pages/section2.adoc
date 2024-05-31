@@ -33,7 +33,7 @@ Disk transfer authentication
 Navigate to *Operators* -> *Installed Operators* and review the `Migration Toolkit for Virtualization` operator.
 
 [NOTE]
-Operator was preinstalled to be ued in this lab.
+Operator was preinstalled to be used in this lab.
 If you are performing this on your own setup then you can follow the below instructions to install the Operator.
 
 == Install and configure the MTV Operator
@@ -41,18 +41,19 @@ If you are performing this on your own setup then you can follow the below instr
 . Navigate to *Operators* -> *OperatorHub* and filter for `Migration Toolkit for Virtualization`
 +
 image::MTV/01_OperatorHub.png[]
-. Click the tile appeared and press *Install*
+. Click the tile that appears and press *Install*
 +
 image::MTV/02_Operator.png[]
 
-. Review the _Custom Resources Definition_ which are going to be created and without modify any option press *Install*
+. Review the _Custom Resources Definition_ which are going to be created and without modifying any option press *Install*
 +
 image::MTV/03_Operator_Install.png[]
 +
 [IMPORTANT]
 Select version `release-v2.4`
 
-. Like others Operators after the installation is required to create a Controller. Press *Create ForkliftController* for that purpose.
+. Like others Operators after the installation is required to create a Controller. Press *Create ForkliftController* for that purpose. 
+// Sentence 1 is unclear. Should it be - Like other Operators, it is required to create a Controller after the installation.
 +
 image::MTV/04_Operator_Installed.png[]
 
