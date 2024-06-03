@@ -30,6 +30,16 @@ Create project called `vmexamples`.
 
 === Create ImageStreams and BuildConfigs
 
+ImageStreams
+If you can imagine a Pod being an abstraction of the idea of a running container(s), you could imagine an ImageStream being an abstraction of the idea of a repository in an image registry (such as quay.io, or the internal container registry in an OpenShift cluster).
+Whenever you want to deploy an application in a project, instead of having to hardcode the registry URL and tag, you can just refer to the image stream tag.
+If the source image changes location in future, you just need to update the image stream definition, instead of updating all your deployments individually!
+
+BuildConfig
+Image streams can also be used as triggers.
+This means that you can set an image stream as a source for a Build or a Deployment.
+When the image changes, this can trigger a new Build, or trigger a redeployment of your app.
+
 . Navigate to *Builds* -> *ImageStreams*
 . Press *Create ImageStream*
 +
